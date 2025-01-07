@@ -64,3 +64,6 @@ To set up this project on your local machine or server, follow these steps:
 2. Run the SQL query (database_query.sql) in your database to create the database, tables, and columns.
 3. Update the database information in (/includes/db_connection.php).
 4. Finally, visit your home directory in your browser.
+
+## Screenshot of Bank Account Opening Form
+![Account Creation Form Screenshot](https://github.com/Raisul447/Bank-Account-Opening-Form-Project-Using-PHP/blob/main/Screenshots/Account_creation_page1.png)
