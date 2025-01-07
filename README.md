@@ -66,12 +66,12 @@ To set up this project on your local machine or server, follow these steps:
 4. Finally, visit your home directory in your browser.
 
 ## Screenshot of Bank Account Opening Form
-![Account Creation Form Screenshot](/Screenshots/Index_page.png)
+![Index Page](/Screenshots/Index_page.png)
 
 ![Account Creation Form Screenshot](/Screenshots/Account_creation_page1.png)
 
 ![Account Creation Form Screenshot](/Screenshots/Account_creation_page2.png)
 
-![Account Creation Form Screenshot](/Screenshots/Customer _search_page_using_ID.png)
+![Customer Search Page](/Screenshots/Customer_search_page_using_ID.png)
 
-![Account Creation Form Screenshot](/Screenshots/Search_result_customer_with_ID.png)
+![Customer Search Result Page](/Screenshots/Search_result_customer_with_ID.png)
