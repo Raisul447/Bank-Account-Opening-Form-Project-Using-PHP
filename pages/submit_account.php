@@ -1,21 +1,9 @@
 <?php
-// For debugging (remove these two lines in production)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Connect to the database
 include('../includes/db_connection.php');
 
-// Remove this line that dumps the POST data
-// echo '<pre>';
-// var_dump($_POST);
-// echo '</pre>';
-
-// Get form data using isset() to avoid undefined array key warnings
 $customer_id = isset($_POST['customer_id']) ? $_POST['customer_id'] : null;
 $date = isset($_POST['date']) ? $_POST['date'] : '';
 
-// If the date is empty, use the current date as default
 if (empty($date)) {
     $date = date('Y-m-d');
 }
@@ -29,7 +17,7 @@ $mobile_number = isset($_POST['mobile_number']) ? $_POST['mobile_number'] : '';
 $email_id = isset($_POST['email_id']) ? $_POST['email_id'] : '';
 $dob = isset($_POST['dob']) ? $_POST['dob'] : '';
 
-// Check if (dob) is empty, if it is, set it to NULL or a default date
+// Check if (dob) is empty, if it is set it to NULL
 if (empty($dob)) {
     $dob = NULL;
 }
@@ -42,19 +30,15 @@ $permanent_address = isset($_POST['permanent_address']) ? $_POST['permanent_addr
 $national_id = isset($_POST['national_id']) ? $_POST['national_id'] : '';
 $monthly_income = isset($_POST['monthly_income']) ? $_POST['monthly_income'] : 0;
 
-// Handle interest_percentage: If empty or not set, leave it as NULL
 $interest_percentage = isset($_POST['interest_percentage']) && $_POST['interest_percentage'] !== '' 
     ? $_POST['interest_percentage'] // Let it remain the same if it has a value
     : NULL; // If not set or empty, it will default to NULL (as per the database)
 
-
-// Upload photo
 $photo = isset($_FILES['photo']['name']) ? $_FILES['photo']['name'] : '';
 if ($photo) {
     move_uploaded_file($_FILES['photo']['tmp_name'], "../uploads/customer_photos/" . $photo);
 }
 
-// Nominee information
 $nominee_name = isset($_POST['nominee_name']) ? $_POST['nominee_name'] : '';
 $nominee_photo = isset($_FILES['nominee_photo']['name']) ? $_FILES['nominee_photo']['name'] : '';
 if ($nominee_photo) {
@@ -81,10 +65,7 @@ $sql = "INSERT INTO customers (
 
 // Check if the insert query is successful
 if ($conn->query($sql) === TRUE) {
-    // Get the last inserted customer_id (if it's auto-incremented)
-    $customer_id = $conn->insert_id;
-
-    // Insert into nominees table
+    // Now use the same customer_id in the nominees table
     $nominee_sql = "INSERT INTO nominees (
         customer_id, nominee_name, nominee_photo, nominee_address, nominee_percentage, 
         nominee_relationship, nominee_dob, nominee_national_id
@@ -94,14 +75,14 @@ if ($conn->query($sql) === TRUE) {
     )";
 
     if ($conn->query($nominee_sql) === TRUE) {
-        // After successful insert, display only this message
+        // If success, display to customer page
         echo "New record created successfully!";
     } else {
-        // If something goes wrong with the nominee insertion
+        // If error
         echo "Error: " . $nominee_sql . "<br>" . $conn->error;
     }
 } else {
-    // If something goes wrong with the customer insertion
+    // If error with the customer insertion
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 ?>
