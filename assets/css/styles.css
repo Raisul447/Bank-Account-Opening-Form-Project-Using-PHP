@@ -1,0 +1,90 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.bold-label {
+    font-weight: bold;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    text-align: left;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, textarea {
+    margin: 10px 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    position: relative;
+    bottom: 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Specially for mobile screen */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    footer {
+        font-size: 12px;
+    }
+}
