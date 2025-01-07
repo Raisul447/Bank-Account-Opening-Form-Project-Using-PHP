@@ -64,6 +64,7 @@ To set up this project on your local machine or server, follow these steps:
 2. Run the SQL query (database_query.sql) in your database to create the database, tables, and columns.
 3. Update the database information in (/includes/db_connection.php).
 4. Finally, visit your home directory in your browser.
+5. If face error uploading images, try to set the persmission 755 of the directory (/uploads).
 
 ## Screenshot of Bank Account Opening Form
 ![Index Page](/Screenshots/Index_page.png)
